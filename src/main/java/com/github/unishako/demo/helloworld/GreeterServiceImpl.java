@@ -9,7 +9,9 @@ import io.grpc.examples.helloworld.HelloReply;
 import io.grpc.examples.helloworld.HelloRequest;
 import io.grpc.protobuf.ProtoUtils;
 import io.grpc.stub.StreamObserver;
+import org.lognet.springboot.grpc.GRpcService;
 
+@GRpcService
 public class GreeterServiceImpl extends GreeterGrpc.GreeterImplBase {
 
     @Override
@@ -19,10 +21,13 @@ public class GreeterServiceImpl extends GreeterGrpc.GreeterImplBase {
         LocalizedMessage message = LocalizedMessage.newBuilder().setLocale("ja-JP").setMessage("バリデーションエラー①").build();
         metadata.put(ProtoUtils.keyForProto(message), message);
 
-        StatusRuntimeException exception = Status.INVALID_ARGUMENT
-                .withDescription("バリデーションエラー②")
-                .asRuntimeException(metadata); // Metadataを付加
-        responseObserver.onError(exception);
+//        StatusRuntimeException exception = Status.INVALID_ARGUMENT
+//                .withDescription("バリデーションエラー②")
+//                .asRuntimeException(metadata); // Metadataを付加
+
+        throw new InvalidArgumentException(metadata);
+
+        //responseObserver.onError(exception);
 
         //super.sayHello(request, responseObserver);
     }
