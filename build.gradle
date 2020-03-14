@@ -1,8 +1,8 @@
 plugins {
-    id 'org.springframework.boot' version '2.2.4.RELEASE'
+    id 'org.springframework.boot' version '2.2.5.RELEASE'
     id 'io.spring.dependency-management' version '1.0.9.RELEASE'
     id 'java'
-    id 'com.google.protobuf' version '0.8.11'
+    id 'com.google.protobuf' version '0.8.12'
     id 'idea'
 }
 
@@ -24,8 +24,8 @@ repositories {
 dependencies {
     //implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     //implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.1'
-    implementation 'io.github.lognet:grpc-spring-boot-starter:3.5.1'
-    implementation 'io.grpc:grpc-stub:1.27.0'
+    implementation 'io.github.lognet:grpc-spring-boot-starter:3.5.2'
+    implementation 'io.grpc:grpc-stub:1.27.2'
     compileOnly 'org.projectlombok:lombok'
     //runtimeOnly 'mysql:mysql-connector-java'
     annotationProcessor 'org.projectlombok:lombok'
@@ -40,11 +40,11 @@ test {
 
 protobuf {
     protoc {
-        artifact = "com.google.protobuf:protoc:3.11.3"
+        artifact = "com.google.protobuf:protoc:3.11.4"
     }
     plugins {
         grpc {
-            artifact = "io.grpc:protoc-gen-grpc-java:1.27.0"
+            artifact = "io.grpc:protoc-gen-grpc-java:1.27.2"
         }
     }
     generateProtoTasks {

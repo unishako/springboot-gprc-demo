@@ -2,8 +2,6 @@ package com.github.unishako.demo.helloworld;
 
 import com.google.rpc.LocalizedMessage;
 import io.grpc.Metadata;
-import io.grpc.Status;
-import io.grpc.StatusRuntimeException;
 import io.grpc.examples.helloworld.GreeterGrpc;
 import io.grpc.examples.helloworld.HelloReply;
 import io.grpc.examples.helloworld.HelloRequest;
