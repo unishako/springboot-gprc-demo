@@ -35,7 +35,9 @@ public class GreeterServiceImpl extends GreeterGrpc.GreeterImplBase {
             var response = stub.sayHello(request);
         } catch (StatusRuntimeException e) {
             if (Status.INVALID_ARGUMENT.getCode().equals(e.getStatus().getCode())) {
-                log.info("INVALID_ARGUMENTは無視しますよ");
+                log.info("INVALID_ARGUMENTなら無視しますよ");
+            } else {
+                throw e;
             }
         }
         var helloReply = HelloReply.newBuilder().setMessage("正常終了").build();
